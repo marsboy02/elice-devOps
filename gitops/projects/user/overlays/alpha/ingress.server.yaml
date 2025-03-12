@@ -1,0 +1,16 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: ingress-account
+spec:
+  hosts:
+  - "user.alpha.example.com"
+  http:
+  - match:
+    - uri:
+        prefix: /
+    route:
+    - destination:
+        host: user-server.user-server.svc.cluster.local
+        port:
+          number: 80
