@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: user-configmap
+data:
+  DATABASE_URL: "postgres.prod-coupon-server.svc.cluster.local"
+  DATABASE_DB: "prod-coupon-server-database"
+  DATABASE_USERNAME: "prod-coupon-server-username"
+  DATABASE_PASSWORD: "prod-coupon-server-database"
