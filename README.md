@@ -2,9 +2,11 @@
 
 - elice 프로젝트를 구현한 레포지토리입니다.
 
-### gitops
+## gitops
 
-- ArgoCD 관련 애드온 및 ArgoCD가 바라보고 있는 쿠버네티스 매니페스트가 들어있습니다.
+### addons
+
+- argocd 및 harbor가 helm chart 매니페스트로 있으며, 다음의 명령어를 통해서 실행할 수 있습니다.
 
 ```bash
 # helm chart를 이용한 argocd 생성
@@ -23,12 +25,17 @@ kubectl create namespace harbor
 helm install argocd ./gitops/addons/harbor -n harbor
 ```
 
-### nestjs-server
+### projects
+
+- 마이크로서비스는 직접 쿠버네티스 매니페스트를 통해서 배포합니다.
+- 모든 서비스는 Kustomize를 통해서 멀티 스테이지 배포를 지원합니다.
+
+## nestjs-server ( user-server )
 
 - 테스트용으로 간단하게 제작된 nest.js 프레임워크 API Server입니다. PostgreSQL에서 데이터를 간단하게 반환합니다.
 - Health Check를 위한 URL이 있습니다.
 
-### spring-server
+## spring-server ( coupon-server )
 
 - 테스트용으로 간단하게 제작된 spring 프레임워크 API Server입니다. PostgreSQL에서 데이터를 간단하게 반환합니다.
 - Health Check를 위한 URL이 있습니다.
